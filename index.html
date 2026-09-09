@@ -711,13 +711,17 @@ window.addEventListener('scroll',function(){var n=document.getElementById('nav')
 // ============================================================
 // PAGE LOAD — check session
 // ============================================================
-document.addEventListener('DOMContentLoaded',async function(){
-  try{
-    var user=await Auth.getSession();
-    if(user)await loadClientData();
-  }catch(e){console.error('Session check failed:',e);}
-  render();
-  setTimeout(function(){var l=document.getElementById('ld');if(l)l.classList.add('hide');},600);
+document.addEventListener('DOMContentLoaded',function(){
+  setTimeout(function(){var l=document.getElementById('ld');if(l)l.classList.add('hide');},400);
+  Auth.getSession().then(function(user){
+    if(user){
+      return loadClientData().then(function(){render();});
+    }
+    render();
+  }).catch(function(e){
+    console.error('Session check failed:',e);
+    render();
+  });
 });
 </script>
 </body>
