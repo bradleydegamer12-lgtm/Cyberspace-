@@ -267,6 +267,15 @@ h1,h2,h3,h4{font-weight:700;line-height:1.15}
 <div id="toasts" class="toast-wrap" aria-live="polite"></div>
 <div id="app"></div>
 <script>
+  // ============================================
+// SUPABASE INIT
+// ============================================
+var SUPABASE_URL = 'https://yywqnfrlscjtikofpnje.supabase.co/rest/v1/
+'; // ← paste your Project URL
+var SUPABASE_KEY = 'sb_publishable_YXOcZLUrIxQeBLSdFjzEIg_MH2V97ZN
+'; // ← paste your anon key
+var supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
 // ============================================================
 // CONFIG
 // ============================================================
