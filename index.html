@@ -623,6 +623,34 @@ document.addEventListener('DOMContentLoaded',async function(){
   render();
   hideLoader();
 });
+  // ============================================================
+// BOOT — Initialize the app on page load
+// ============================================================
+(async function boot() {
+  // 1. Check for an existing Supabase session
+  try {
+    var sessionUser = await Auth.getSession();
+    if (sessionUser) {
+      // User is already logged in — restore their profile
+      S.user = sessionUser;
+    }
+  } catch (e) {
+    console.warn('Session check failed:', e);
+  }
+
+  // 2. Render the initial page (home)
+  render();
+
+  // 3. Hide the loading screen
+  hideLoader();
+
+  // 4. Re-hide loader on scroll (fixes a race condition where
+  //    the loader might flash back on some mobile browsers)
+  window.addEventListener('scroll', function onFirstScroll() {
+    hideLoader();
+    window.removeEventListener('scroll', onFirstScroll);
+  }, { once: true });
+})();
 </script>
 </body>
   </html>
