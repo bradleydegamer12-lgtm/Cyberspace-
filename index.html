@@ -201,7 +201,10 @@ h1,h2,h3,h4{font-weight:700;line-height:1.15}
 <script>
 var supabase=null;
 var SUPABASE_READY=false;
-try{if(window.supabase&&window.supabase.createClient){supabase=window.supabase.createClient('https://yywqnfrlscjtikofpnje.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5d3FuZnJsc2NqdGlrb2ZwbmplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg5NzA3ODgsImV4cCI6MjEwNDU0Njc4OH0.QaiXEwU2l_ossaB3SiQ-ar8Y2Fltt0nWbKiQA4wCXPY');SUPABASE_READY=true;}}catch(e){console.error('Supabase init failed:',e);}
+try{if(supabase=window.supabase.createClient(
+  'https://yywqnfrlscjtikofpnje.supabase.co',
+  'eyJhbGciOiJIUzI1NiIs...'
+);SUPABASE_READY=true;}}catch(e){console.error('Supabase init failed:',e);}
 
 var C={name:'CyberForge',em:'cyberforge37@gmail.com',ph:'0691920939',hrs:'Mon-Fri, 9AM-6PM EST'};
 var BIZ=['Restaurant','Barber Shop','Car Dealership','Real Estate','Clothing Store','Gym','Portfolio','Tech Startup','Other'];
